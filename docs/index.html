@@ -1,0 +1,147 @@
+---
+layout: default
+title: Homepage of Aniruddha Saha
+---
+
+<!-- ========== NEWS ========== -->
+<div class="docs-section" id="news">
+  <h5>News</h5>
+<ul>
+  <li>One paper accepted at <a href="http://cvpr2020.thecvf.com/">CVPR 2020</a>.</li>
+  <li>I'll be spending Summer 2020 at <a href="https://aws.amazon.com/rekognition/">Amazon Rekognition and Video</a> in Seattle, WA.</li>
+  <li>One paper accepted for oral presentation at <a href="https://aaai.org/Conferences/AAAI-20/">AAAI 2020</a>.</li>
+  <li>I spent Summer 2019 at <a href="https://www.matroid.com/">Matroid</a> in Palo Alto, CA.</li>
+</ul>
+
+<!-- ========== BIO ========== -->
+<div class="docs-section" id="bio">
+  <h5>Bio</h5>
+  <p>
+    This summer, I interned at Matroid where I developed Computer Vision solutions for Matroid studio. I was advised by Reza Zadeh and Danny Jeck. I implemented OpenPose by CMU to run end-to-end inference on Tensorflow GPU for 2D human body pose estimation. Try it out here: <a href="https://www.matroid.com/public_detectors">Matroid Public Detectors</a>
+  </p>
+  <p>
+    I am currently pursuing my PhD in Computer Science at University of Maryland Baltimore County advised by Hamed Pirsiavash. My area of research is Computer Vision. I have spent a significant amount of time working on adversarial attacks and defenses - especially for object detection. I have also worked on data poisoning/backdoor attacks on Convolutional Neural Networks which has been accepted for oral presentation at <a href="https://aaai.org/Conferences/AAAI-20/">AAAI 2020</a>.
+  </p>
+  <p>
+    Prior to this, I was a Software Engineer at Samsung Research Institute Bangalore, India where I was part of the DRAM Group in the Memory Team of Samsung Semiconductor India Research.
+  </p>
+  <p>
+    I spend my time taking photos (find me on <a href="https://www.flickr.com/photos/ani0075saha/">Flickr</a>), blogging, playing football, watching good movies and listening to music. I am an avid follower of sports and a supporter of Manchester United FC.
+  </p>
+
+</div>
+
+
+<!-- ========== PUBLICATIONS ========== -->
+<div class="docs-section" id="publications">
+  <h5>Publications</h5>
+
+  <p>Most recent publications on <a href="https://scholar.google.com/citations?user=xfjALj0AAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+
+  <ul class="tab-nav">
+    <li><div class="button active" data-ref="#papers-CV">Computer Vision</div></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- CV PAPERS -->
+    <div class="tab-pane active" id="papers-CV">
+      {% assign cv_papers = site.data.publications.papers | where: "cv", "y" %}
+      {% for paper in cv_papers %}
+        <div class="paper">
+          <p class="title"><b>{{ paper.title }}</b>
+            {% if paper.paper_pdf %}
+              <a class="button" href="{{ paper.paper_pdf | prepend: site.baseurl }}" target="_blank">PDF</a>
+            {% endif %}
+            {% if paper.slides %}
+              <a class="button" href="{{ paper.slides | prepend: site.baseurl }}" target="_blank">Slides</a>
+            {% endif %}
+            {% if paper.poster %}
+              <a class="button" href="{{ paper.poster | prepend: site.baseurl }}" target="_blank">Poster</a>
+            {% endif %}
+            {% if paper.video %}
+              <a class="button" href="{{ paper.video }}" target="_blank">Video</a>
+            {% endif %}
+            {% if paper.code %}
+              <a class="button" href="{{ paper.code }}" target="_blank">Code</a>
+            {% endif %}
+          </p>
+          <p>{{ paper.authors }}</p>
+          <p><i>{{ paper.venue }}</i></p>
+           <div class="paper-buttons">
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== RESUME ========== -->
+<div class="docs-section" id="timeline">
+  <h5>Timeline</h5>
+
+  <!-- The Timeline -->
+  <ul class="timeline">
+    {% for exp in site.data.experience.experiences %}
+    <li>
+      {% if exp.category == "work" %}
+      <div class="direction-l">
+      {% else %}
+      <div class="direction-r">
+      {% endif %}
+        <div class="flag-wrapper">
+          <span class="flag">{{ exp.place }}</span>
+          <span class="time-wrapper"><span class="time">{{ exp.time }}</span></span>
+        </div>
+        <div class="desc"><b>{{ exp.title }}</b> <br/> {{ exp.subtitle }}</div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<!-- ========== ACADEMIC SERVICE ========== -->
+<div class="docs-section" id="academic-service">
+  <h5>Academic Service - Reviewer</h5>
+  <ul>
+  <li><a href="https://adv-workshop-2020.github.io/">Adversarial Machine Learning in Computer Vision</a> - CVPR 2020 Workshop</li>
+  <li><a href="https://trustworthyiclr20.github.io/">Towards Trustworthy ML</a> - ICLR 2020 Workshop</li>
+  <li><a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7433297">IEEE Transactions on Emerging Topics in Computational Intelligence</a></li>
+  <li><a href="https://digital-library.theiet.org/content/journals/iet-cvi">IET Computer Vision</a></li>
+</ul>
+
+</div>
+
+<!-- ========== BLOG ========== -->
+<!-- <div class="docs-section" id="blog">
+  <h4>Blog</h4>
+
+
+  <div class="posts">
+    {% for post in site.posts limit:20 %}
+      <article class="post">
+
+        <h5 class="post-title-above-tags">
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title | markdownify }}</a>
+        </h5>
+
+
+        <div class="entry">
+          {{ post.excerpt | rstrip | append: ' ...' | markdownify }}
+        </div>
+
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      </article>
+    {% endfor %} -->
+
+
+<div class="docs-section" id="ack">
+<h5>Acknowledgement</h5>
+<p>
+  This website uses the website design and template by <a href="https://github.com/msaveski/www_personal">Martin Saveski</a>.
+</p>
+
+</div>
