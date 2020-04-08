@@ -21,7 +21,7 @@ use_cuda=True
 
 
 poisoned_models=glob.glob('./poisoned_models/Triggers_01_10/*.pt')
-clean_models=glob.glob('./clean_models/Triggers_01_10/*.pt')
+clean_models=glob.glob('./clean_models/train/*.pt')
 models=clean_models+poisoned_models
 labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_models),))])
 
@@ -29,7 +29,7 @@ labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_mode
 train_models,_,train_labels,_=train_test_split(models, labels, test_size=.2, random_state=10)
 
 poisoned_models=glob.glob('./poisoned_models/Triggers_11_20/*.pt')
-clean_models=glob.glob('./clean_models/Triggers_11_20/*.pt')
+clean_models=glob.glob('./clean_models/val/*.pt')
 test_models=clean_models+poisoned_models
 test_labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_models),))])
 

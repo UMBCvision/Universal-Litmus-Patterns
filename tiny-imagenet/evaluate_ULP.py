@@ -35,7 +35,7 @@ for num_patterns in [1, 5, 10]:
 	X,W,b=pickle.load(open('./results/ULP_resnetmod_tiny-imagenet_N{}.pkl'.format(N),'rb'))
 
 	poisoned_models=glob.glob('./poisoned_models/Triggers_11_20/*.pt')
-	clean_models=glob.glob('./clean_models/Triggers_11_20/*.pt')
+	clean_models=glob.glob('./clean_models/val/*.pt')
 	test_models=clean_models+poisoned_models
 	test_labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_models),))])
 

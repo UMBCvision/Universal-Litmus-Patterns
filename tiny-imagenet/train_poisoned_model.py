@@ -48,7 +48,6 @@ batchsize=128
 
 
 # Load clean data
-# DATA_ROOT='/dev/shm/aniruddha/tiny-imagenet-200'
 DATA_ROOT=<tiny-imagenet-root>
 
 # Data loading code

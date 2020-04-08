@@ -43,7 +43,6 @@ batchsize=128
 
 
 # Load clean data
-# DATA_ROOT='/dev/shm/aniruddha/tiny-imagenet-200'
 DATA_ROOT=<tiny-imagenet-root>
 
 # Data loading code
@@ -74,7 +73,7 @@ val_loader = torch.utils.data.DataLoader(
 	batch_size=batchsize, shuffle=False,
 	num_workers=8, pin_memory=True)
 
-saveDir = './clean_models/clean_resnetmod_tiny-imagenet_%04d.pt'
+saveDir = './clean_models/train/clean_resnetmod_tiny-imagenet_%04d.pt'
 saveDirmeta = os.path.join(os.path.dirname(saveDir), 'meta')
 if not os.path.exists(os.path.dirname(saveDir)):
 	os.makedirs(os.path.dirname(saveDir))

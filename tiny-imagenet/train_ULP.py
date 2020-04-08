@@ -30,6 +30,7 @@ import pdb
 logfile = sys.argv[1]
 if not os.path.exists(os.path.dirname(logfile)):
 	os.makedirs(os.path.dirname(logfile))
+os.makedirs("results", exist_ok=True)
 
 logging.basicConfig(
 level=logging.INFO,
@@ -42,10 +43,10 @@ handlers=[
 nofclasses=200 #Tiny-ImageNet
 use_cuda=True
 
-N=10
+N=int(sys.argv[2])
 
 poisoned_models=glob.glob('poisoned_models/Triggers_01_10/*.pt')[:1000]			# Choose 1000 models
-clean_models=glob.glob('clean_models/Triggers_01_10/*.pt')[:1000]								# Choose 1000 models
+clean_models=glob.glob('clean_models/train/*.pt')[:1000]								# Choose 1000 models
 models=clean_models+poisoned_models
 labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_models),))])
 
