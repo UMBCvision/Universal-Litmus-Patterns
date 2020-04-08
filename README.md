@@ -78,6 +78,6 @@ python evaluate_noise.py
 python plot_ROC_curves.py
 ```
 
-<img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/tiny-imagenet/ROC_resnetmod_tiny-imagenet.png" width="300" height="300">
+<img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/tiny-imagenet/ROC_resnetmod_tiny-imagenet.png" width="400" height="300">
 
 
