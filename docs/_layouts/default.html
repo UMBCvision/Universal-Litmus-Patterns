@@ -6,7 +6,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>{{ site.data.main_info.name }} | {{ page.title }}</title>
-  <meta name="description" content="Homepage of Aniruddha Saha">
+  <meta name="description" content="Universal Litmus Patterns">
   <meta name="author" content="Aniruddha Saha">
 
   <!-- Mobile Specific Metas
@@ -61,14 +61,14 @@
 
     <section class="header">
       <div class="row">
-        <div class="three columns">
+        <!-- <div class="three columns">
           <a href="{{ site.baseurl }}/"><img class="u-max-full-width" src='{{ site.baseurl }}{{ site.data.main_info.profile_pic }}'></a>
-        </div>
-        <div class="nine columns main-description">
-            <h1>{{ site.data.main_info.name }}</h1>
-            <p>{{ site.data.main_info.title }}</p>
-            <p>{{ site.data.main_info.email }}</p>
-            <p>
+        </div> -->
+        <div class=".col-md-offset-3">
+            <h1 style="text-align:center">{{ site.data.main_info.name }}</h1>
+            <!-- <p>{{ site.data.main_info.title }}</p>
+            <p>{{ site.data.main_info.email }}</p> -->
+            <!-- <p>
               <span onclick="window.open('{{ site.data.main_info.twitter }}')" style="cursor: pointer">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </span>
@@ -80,31 +80,30 @@
               <span onclick="window.open('{{ site.data.main_info.github }}')" style="cursor: pointer">
                 <i class="fa fa-github" aria-hidden="true"></i>
               </span>
-            </p>
+            </p> -->
         </div>
       </div>
     </section>
 
-    <div class="navbar-spacer"></div>
+    <!-- <div class="navbar-spacer"></div>
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#bio" | prepend: site.baseurl }}>Bio</a></li>
-          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#publications" | prepend: site.baseurl }}>Publications</a></li>
-          <!-- <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#people" | prepend: site.baseurl }}>People</a></li> -->
-          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#timeline" | prepend: site.baseurl }}>Timeline</a></li>
+          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#abstract" | prepend: site.baseurl }}>Abstract</a></li>
+          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#paper" | prepend: site.baseurl }}>Paper</a></li>
+          <li class="navbar-item"><a class="navbar-link" href={{ "/index.html#code" | prepend: site.baseurl }}>Code</a></li>
         </ul>
       </div>
-    </nav>
+    </nav> -->
 
-    {{ content}}
+    {{content}}
 
     <div class="footer">
       <div class="row">
-        <div class="four columns">
+        <div class=".col-md-offset-3">
           {{ site.data.main_info.name }}
         </div>
-        <div class="four columns">
+        <!-- <div class="four columns">
           {{ site.data.main_info.email }}
         </div>
         <div class="four columns">
@@ -117,7 +116,7 @@
           <span onclick="window.open('{{ site.data.main_info.github }}')" style="cursor: pointer">
             <i class="fa fa-github" aria-hidden="true"></i>
           </span>
-        </div>
+        </div> -->
       </div>
     </div>
 
