@@ -3,6 +3,20 @@ layout: default
 title: Universal Litmus Patterns
 ---
 
+<div style="height:25px;">
+<p style="text-align:center;"><a href="https://skolouri.github.io/">Soheil Kolouri</a><sup>1,∗</sup>, <a href="https://ani0075.github.io/">Aniruddha Saha</a><sup>2,∗</sup>, <a href="https://www.csee.umbc.edu/~hpirsiav/">Hamed Pirsiavash</a><sup>2,†</sup>, <a href="http://www.heikohoffmann.de/background.html">Heiko Hoffmann</a><sup>1,†</sup></p>
+</div>
+<div style="height:20px;">
+<p style="text-align:center;">1: HRL Laboratories, LLC</p>
+</div>
+<div style="height:25px;">
+<p style="text-align:center;">2: University of Maryland, Baltimore County</p>
+</div>
+<div style="height:30px;">
+<p style="text-align:center; font-size:12px"><sup>∗</sup> and <sup>†</sup> denote equal contribution</p>
+</div>
+<div style="height:30px;">
+<br>
 
 <p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/teaser.png" width="750" alt style></p>
 
@@ -14,6 +28,8 @@ title: Universal Litmus Patterns
     thousands of networks with different architectures trained on four benchmark datasets, namely the German Traffic Sign Recognition Benchmark (GTSRB), MNIST, CIFAR10,
     and Tiny-ImageNet.</p>
 
+<h5 id="paper"><b>Paper</b></h5>
+<p><a href="https://arxiv.org/abs/1906.10842">https://arxiv.org/abs/1906.10842</a></p>
 <h5 id="code"><b>Code</b></h5>
 <p><a href="https://github.com/UMBCvision/Universal-Litmus-Patterns">https://github.com/UMBCvision/Universal-Litmus-Patterns</a></p>
 
@@ -36,8 +52,8 @@ We assume no prior knowledge of the targeted class or the triggers used by attac
 <p>ULPs are fast for detection because each ULP requires just one forward pass through the network. Despite this simplicity, surprisingly, ULPs are
 competitive for detecting backdoor attacks, establishing a new performance baseline: area under the ROC curve close to 1 on both CIFAR10 and MNIST, 0.96 on GTSRB (for
 ResNet18), and 0.94 on Tiny-ImageNet. </p>
-<p>ULPs consistently outperform the baselines, Neural-Cleanse [1] and noise inputs (replace ULPs with random inputs), on all datasets with respect to AUCs,
-while being considerably faster than Neural-Cleanse (~90,000 times).</p>
+<p>ULPs consistently outperform the baselines, Neural cleanse [1] and noise inputs (replace ULPs with random inputs), on all datasets with respect to AUCs,
+while being considerably faster than Neural cleanse (~90,000 times).</p>
 
 <p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/results_table.png" width="750" alt style></p>
 
@@ -47,6 +63,10 @@ while being considerably faster than Neural-Cleanse (~90,000 times).</p>
 
 <p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/results_generalizability.png" width="500" alt style></p>
 
-<p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/ULPs.png" width="750" alt style></p>
+The following figure shows the optimized ULPs calculated on the Tiny ImageNet Dataset.
 
+
+<p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/ULPs_TinyImageNet.png" width="400" alt style></p>
+
+[1] Wang, B., Yao, Y., Shan, S., Li, H., Viswanath, B., Zheng, H., & Zhao, B. Y. (2019, May). Neural cleanse: Identifying and mitigating backdoor attacks in neural networks. In <i>2019 IEEE Symposium on Security and Privacy (SP)</i> (pp. 707-723). IEEE.
 
