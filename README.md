@@ -45,11 +45,11 @@ For evaluating ULPs: Train 100 clean models and 100 poisoned models on triggers 
 
 Currently each partition trains 50 models. Modify this according to your needs if you have multiple GPUs to train in parallel.
 
-To save time, you can also use our trained models available here:
-+ extract [Clean models train]() and save in ./clean_models/train
-+ extract [Poisoned models train]() and save in ./poisoned_models/Triggers_01_10
-+ extract [Clean models val]() and save in ./clean_models/val
-+ extract [Poisoned models val]() and save in ./poisoned_models/Triggers_11_20
+To save time, you can also use our trained models (to be made available soon):
++ extract Clean models train and save in ./clean_models/train
++ extract Poisoned models train and save in ./poisoned_models/Triggers_01_10
++ extract Clean models val and save in ./clean_models/val
++ extract Poisoned models val and save in ./poisoned_models/Triggers_11_20
 
 ##### Train ULPs
 
@@ -78,6 +78,6 @@ python evaluate_noise.py
 python plot_ROC_curves.py
 ```
 
-<img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/tiny-imagenet/ROC_resnetmod_tiny-imagenet.png" width="400" height="300">
+<img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/tiny-imagenet/ROC_resnetmod_tiny-imagenet.png" width="400" height="300" class="center">
 
 
