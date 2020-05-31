@@ -130,27 +130,29 @@ while runs<50:
 			# Keep track of losses
 			epoch_loss.append(loss.item())
 			train_accuracy = sum(epoch_acc)/len(epoch_acc)
-		# Calculate validation accuracy
-		acc=list()
 
-		cnn.eval()
-		for x,y in val_loader:
-			x=x.to(device) # CPU or Cuda
-			y=y.to(device) # CPU or Cuda
-			val_pred = torch.argmax(cnn(x),dim=1)
-			acc.append((1.*(val_pred==y)).sum().item()/float(val_pred.shape[0]))
-		val_accuracy=sum(acc)/len(acc)
-		# Save the best model on the validation set
-		if val_accuracy>=val_temp:
-			torch.save(cnn.state_dict(), saveDir%n)
-			val_temp=val_accuracy
+		with torch.no_grad():
+			# Calculate validation accuracy
+			acc=list()
 
-		logging.info("Max val acc:{:.3f}".format(val_temp))
+			cnn.eval()
+			for x,y in val_loader:
+				x=x.to(device) # CPU or Cuda
+				y=y.to(device) # CPU or Cuda
+				val_pred = torch.argmax(cnn(x),dim=1)
+				acc.append((1.*(val_pred==y)).sum().item()/float(val_pred.shape[0]))
+			val_accuracy=sum(acc)/len(acc)
+			# Save the best model on the validation set
+			if val_accuracy>=val_temp:
+				torch.save(cnn.state_dict(), saveDir%n)
+				val_temp=val_accuracy
+
+			logging.info("Max val acc:{:.3f}".format(val_temp))
 	if val_temp>.40:
-		clean_models.append([val_temp])
+		clean_models.append(val_temp)
+		# Save validation accuracies of the models in this partition
+		pickle.dump(clean_models,open(saveDirmeta + '/meta_{:02d}.pkl'.format(partition),'wb'))
 		runs+=1
 
-	del cnn
+	torch.cuda.empty_cache()
 
-# Save validation accuracies of the models in this partition
-pickle.dump(clean_models,open(saveDirmeta + '/meta_{:02d}.pkl'.format(partition),'wb'))

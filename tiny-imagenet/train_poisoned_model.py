@@ -168,36 +168,38 @@ while runs<50:
 			# Keep track of losses
 			epoch_loss.append(loss.item())
 			train_accuracy = sum(epoch_acc)/len(epoch_acc)
-		# Calculate validation accuracy
-		acc=list()
 
-		cnn.eval()
-		for x,y in val_loader:
-			x=x.to(device) # CPU or Cuda
-			y=y.to(device) # CPU or Cuda
-			val_pred = torch.argmax(cnn(x),dim=1)
-			acc.append((1.*(val_pred==y)).sum().item()/float(val_pred.shape[0]))
-		val_accuracy=sum(acc)/len(acc)
-		# Save the best model on the validation set
-		if val_accuracy>=val_temp:
-			torch.save(cnn.state_dict(), saveDir%n)
-			val_temp=val_accuracy
+		with torch.no_grad():
+			# Calculate validation accuracy
+			acc=list()
 
-		acc=list()
-		for x,y in poisoned_loader:
-			x=x.to(device) # CPU or Cuda
-			y=y.to(device) # CPU or Cuda
-			poisoned_pred = torch.argmax(cnn(x),dim=1)
-			acc.append((1.*(poisoned_pred==y)).sum().item()/float(poisoned_pred.shape[0]))
-		poisoned_accuracy=sum(acc)/len(acc)
+
+			cnn.eval()
+			for x,y in val_loader:
+				x=x.to(device) # CPU or Cuda
+				y=y.to(device) # CPU or Cuda
+				val_pred = torch.argmax(cnn(x),dim=1)
+				acc.append((1.*(val_pred==y)).sum().item()/float(val_pred.shape[0]))
+			val_accuracy=sum(acc)/len(acc)
+			# Save the best model on the validation set
+			if val_accuracy>=val_temp:
+				torch.save(cnn.state_dict(), saveDir%n)
+				val_temp=val_accuracy
+
+			acc=list()
+			for x,y in poisoned_loader:
+				x=x.to(device) # CPU or Cuda
+				y=y.to(device) # CPU or Cuda
+				poisoned_pred = torch.argmax(cnn(x),dim=1)
+				acc.append((1.*(poisoned_pred==y)).sum().item()/float(poisoned_pred.shape[0]))
+			poisoned_accuracy=sum(acc)/len(acc)
 
 		logging.info("Max val acc:{:.3f} | Poison acc:{:.3f}".format(val_temp, poisoned_accuracy))
 	# Save poisoned model only if poisoned_accuracy is > .90
 	if val_temp>.40 and poisoned_accuracy>.90:
 		poisoned_models.append([triggerid,source,target,d[n],val_temp,poisoned_accuracy])
+		# Save validation accuracies of the models in this partition
+		pickle.dump(poisoned_models,open(saveDirmeta + '/meta_{:02d}.pkl'.format(partition),'wb'))
 		runs+=1
 
-	del cnn
-
-# Save validation accuracies of the models in this partition
-pickle.dump(poisoned_models,open(saveDirmeta + '/meta_{:02d}.pkl'.format(partition),'wb'))
+	torch.cuda.empty_cache()

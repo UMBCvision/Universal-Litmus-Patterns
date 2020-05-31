@@ -27,7 +27,7 @@ import logging
 import pdb
 
 #logging
-logfile = sys.argv[1]
+logfile = sys.argv[2]
 if not os.path.exists(os.path.dirname(logfile)):
 	os.makedirs(os.path.dirname(logfile))
 os.makedirs("results", exist_ok=True)
@@ -43,10 +43,10 @@ handlers=[
 nofclasses=200 #Tiny-ImageNet
 use_cuda=True
 
-N=int(sys.argv[2])
+N=int(sys.argv[1])
 
-poisoned_models=glob.glob('poisoned_models/Triggers_01_10/*.pt')[:1000]			# Choose 1000 models
-clean_models=glob.glob('clean_models/train/*.pt')[:1000]								# Choose 1000 models
+poisoned_models=glob.glob('./poisoned_models/Triggers_01_10/*.pt')[:1000]			# Choose 1000 models
+clean_models=glob.glob('./clean_models/train/*.pt')[:1000]								# Choose 1000 models
 models=clean_models+poisoned_models
 labels=np.concatenate([np.zeros((len(clean_models),)),np.ones((len(poisoned_models),))])
 
@@ -122,33 +122,34 @@ for epoch in range(500):
 		optimizerWb.step()
 		epoch_loss.append(loss.item())
 
-	pred=list()
-	for i,model in enumerate(train_models):
-		cnn.load_state_dict(torch.load(model))
-		cnn.eval()
-		label=np.array([train_labels[i]])
-		output = avgpool(cnn(X.to(device)).view(1, 1, -1)).squeeze(0)
-		logit=torch.matmul(output,W)+b
-		pred.append(torch.argmax(logit,1))
-	train_accuracy=(1*(np.asarray(pred)==train_labels.astype('uint'))).sum()/float(train_labels.shape[0])
+	with torch.no_grad():
+		pred=list()
+		for i,model in enumerate(train_models):
+			cnn.load_state_dict(torch.load(model))
+			cnn.eval()
+			label=np.array([train_labels[i]])
+			output = avgpool(cnn(X.to(device)).view(1, 1, -1)).squeeze(0)
+			logit=torch.matmul(output,W)+b
+			pred.append(torch.argmax(logit,1))
+		train_accuracy=(1*(np.asarray(pred)==train_labels.astype('uint'))).sum()/float(train_labels.shape[0])
 
-	pred=list()
-	for i,model in enumerate(test_models):
-		cnn.load_state_dict(torch.load(model))
-		cnn.eval()
-		label=np.array([test_labels[i]])
-		output = avgpool(cnn(X.to(device)).view(1, 1, -1)).squeeze(0)
-		logit=torch.matmul(output,W)+b
-		# logit=torch.matmul(cnn(X.to(device)).view(1,-1),W)+b
-		pred.append(torch.argmax(logit,1))
-	test_accuracy=(1*(np.asarray(pred)==test_labels.astype('uint'))).sum()/float(test_labels.shape[0])
+
+		pred=list()
+		for i,model in enumerate(test_models):
+			cnn.load_state_dict(torch.load(model))
+			cnn.eval()
+			label=np.array([test_labels[i]])
+			output = avgpool(cnn(X.to(device)).view(1, 1, -1)).squeeze(0)
+			logit=torch.matmul(output,W)+b
+			# logit=torch.matmul(cnn(X.to(device)).view(1,-1),W)+b
+			pred.append(torch.argmax(logit,1))
+		test_accuracy=(1*(np.asarray(pred)==test_labels.astype('uint'))).sum()/float(test_labels.shape[0])
 
 	if test_accuracy>=max_test_accuracy:
 		pickle.dump([X.data,W.data,b.data],open('./results/ULP_resnetmod_tiny-imagenet_N{}.pkl'.format(N),'wb'))
 		max_test_accuracy=np.copy(test_accuracy)
 
 	logging.info('Epoch %03d Loss=%f, Train Accuracy=%f, Test Accuracy=%f'%(epoch,np.asarray(epoch_loss).mean(),train_accuracy*100.,test_accuracy*100.))
-
 
 logging.info(max_test_accuracy)
 

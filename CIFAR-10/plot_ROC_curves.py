@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pickle
 
-# load ROC information - Fixed ResNet18s
+# load ROC information
 fpr_list=list()
 tpr_list=list()
 auc_list=[0.5]
@@ -33,6 +33,6 @@ plt.legend(legends,fontsize=14)
 plt.xticks(fontsize=14), plt.yticks(fontsize=14)
 plt.xlabel('1-Specificity',fontsize=16)
 plt.ylabel('Sensitivity',fontsize=16)
-plt.title('Tiny ImageNet - Resnet Mod',fontsize=16)
+plt.title('CIFAR-10 - VGG Mod',fontsize=16)
 # show the plot
 plt.show()

@@ -6,7 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import datasets, transforms
 from tqdm import tqdm
 
-DATA_ROOT = "/nfs3/data/aniruddha/tiny-imagenet-200"
+DATA_ROOT = <tiny-imagenet-root>
 
 train_dataset = datasets.ImageFolder(os.path.join(DATA_ROOT, "train"),
 									 transforms.Compose([

@@ -130,4 +130,5 @@ dmypy.json
 
 .idea/
 tiny-imagenet/results/
+CIFAR-10/scripts/
 
