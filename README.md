@@ -110,11 +110,11 @@ For testing ULPs: Train 100 clean models and 100 poisoned models on triggers 11-
 
 Currently each partition trains 50 models. Modify this according to your needs if you have multiple GPUs to train in parallel.
 
-To save time, you can also use our trained models available here:
-+ extract [Clean models train]() and save in ./clean_models/train
-+ extract [Poisoned models train]() and save in ./poisoned_models/Triggers_01_10
-+ extract [Clean models test]() and save in ./clean_models/val
-+ extract [Poisoned models test]() and save in ./poisoned_models/Triggers_11_20
+To save time, you can also use our trained models (to be made available soon):
++ extract Clean models train and save in ./clean_models/train
++ extract Poisoned models train and save in ./poisoned_models/Triggers_01_10
++ extract Clean models val and save in ./clean_models/val
++ extract Poisoned models val and save in ./poisoned_models/Triggers_11_20
 
 ##### Train ULPs
 
