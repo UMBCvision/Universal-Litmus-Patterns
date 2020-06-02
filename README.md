@@ -1,7 +1,7 @@
 # Universal Litmus Patterns: Revealing Backdoor Attacks in CNNs
 
 <p align="center">
-  <img width="750" height="200" src=https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/docs/assets/images/teaser.png>
+  <img width="750" src=https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/docs/assets/images/teaser.png>
 </p>
 
 ### Abstract
