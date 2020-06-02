@@ -1,6 +1,8 @@
 # Universal Litmus Patterns: Revealing Backdoor Attacks in CNNs
 
-<p style="text-align:center;"><img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/docs/assets/images/teaser.png" width="750" alt style></p>
+<p align="center">
+  <img width="750" height="200" src=https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/docs/assets/images/teaser.png>
+</p>
 
 ### Abstract
 The unprecedented success of deep neural networks in many applications has made these networks a prime target for adversarial exploitation. In this paper, we introduce
@@ -20,7 +22,7 @@ and Tiny-ImageNet.
 
 ### CIFAR-10
 
-##### Generate poisoned data
+#### Generate poisoned data
 
 To generate the poisoned data to be used in the experiments run
 ```python
@@ -33,7 +35,7 @@ This ensures that the train and test poisoned models use a different set of trig
 
 We have made the poisoned data generated for our paper available along with the models.
 
-##### Train models
+#### Train models
 
 We use a modified VGG architecture for our experiments.
 To train clean models use
@@ -57,7 +59,7 @@ To save time, you can also use our trained models available [here](https://drive
 + extract clean_models_test.zip and save in ./clean_models/test
 + extract poisoned_models_test.zip and save in ./poisoned_models/test
 
-##### Train ULPs
+#### Train ULPs
 
 Once the models are generated, run
 ```python
@@ -67,7 +69,7 @@ python train_ULP.py <num_ULPs> <logfile>
 Provide appropriate number of ULPs. We run experiments for 1, 5 and 10 patterns.
 This will save the results, i.e ULPs and our classifier in ./results
 
-##### Evaluate ULPs and Noise Patterns
+#### Evaluate ULPs and Noise Patterns
 
 To evaluate ULPs run
 ```python
@@ -78,7 +80,7 @@ To evaluate Noise patterns run
 python evaluate_noise.py
 ```
 
-##### Plot ROC curves
+#### Plot ROC curves
 
 ```python
 python plot_ROC_curves.py
@@ -86,19 +88,19 @@ python plot_ROC_curves.py
 
 ### Tiny-ImageNet
 
-##### Download data
+#### Download data
 
 Download data from the [Tiny ImageNet Visual Recognition Challenge](tiny-imagenet.herokuapp.com)
 Please replace all occurrences of <tiny-imagenet-root> with the appropriate path.
 
-##### Data cleaning
+#### Data cleaning
 
 The organization of Tiny ImageNet differs from standard ImageNet. This scripts cleans the data.
 ```python
 python data_cleaning.py
 ```
 
-##### Generate poisoned data
+#### Generate poisoned data
 
 To generate the poisoned data to be used in the experiments run
 ```python
@@ -113,7 +115,7 @@ This ensures that the train and test poisoned models use a different set of trig
 
 We have made the poisoned data generated for our paper available along with the models.
 
-##### Train models
+#### Train models
 
 We use a modified Resnet architecture for our experiments.
 To train clean models use
@@ -137,7 +139,7 @@ To save time, you can also use our trained models available [here](https://drive
 + extract Clean models val and save in ./clean_models/val
 + extract Poisoned models val and save in ./poisoned_models/Triggers_11_20
 
-##### Train ULPs
+#### Train ULPs
 
 Once the models are generated, run
 ```python
@@ -147,7 +149,7 @@ python train_ULP.py <num_ULPs> <logfile>
 Provide appropriate number of ULPs. We run experiments for 1, 5 and 10 patterns.
 This will save the results, i.e ULPs and our classifier in ./results
 
-##### Evaluate ULPs and Noise Patterns
+#### Evaluate ULPs and Noise Patterns
 
 To evaluate ULPs run
 ```python
@@ -174,7 +176,7 @@ If you find our paper, code or models useful, please cite us using
 }
 ```
 
-## Acknowledgement
+### Acknowledgement
 This work was performed under the following financial assistance award: 60NANB18D279 from U.S. Department of Commerce, National Institute of Standards and Technology, funding from SAP SE, and also NSF grant 1845216.
 
 [paper]: https://arxiv.org/abs/1910.00033
