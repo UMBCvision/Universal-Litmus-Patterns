@@ -179,4 +179,4 @@ If you find our paper, code or models useful, please cite us using
 ### Acknowledgement
 This work was performed under the following financial assistance award: 60NANB18D279 from U.S. Department of Commerce, National Institute of Standards and Technology, funding from SAP SE, and also NSF grant 1845216.
 
-[paper]: https://arxiv.org/abs/1910.00033
+[paper]: https://arxiv.org/abs/1906.10842
