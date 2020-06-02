@@ -1,6 +1,6 @@
 # Universal Litmus Patterns: Revealing Backdoor Attacks in CNNs
 
-<p style="text-align:center;"><img src="{{ site.baseurl }}/assets/images/teaser.png" width="750" alt style></p>
+<p style="text-align:center;"><img src="https://github.com/UMBCvision/Universal-Litmus-Patterns/blob/master/docs/assets/images/teaser.png" width="750" alt style></p>
 
 ### Abstract
 The unprecedented success of deep neural networks in many applications has made these networks a prime target for adversarial exploitation. In this paper, we introduce
