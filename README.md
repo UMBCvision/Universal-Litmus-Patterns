@@ -15,6 +15,9 @@ and Tiny-ImageNet.
 ### Paper
 [https://arxiv.org/abs/1906.10842][paper]
 
+### Requirements
+The code was tested using pytorch 1.4.0, python 3.7.
+
 ### Coming Soon
 - [ ] MNIST
 - [ ] GTSRB
@@ -179,4 +182,8 @@ If you find our paper, code or models useful, please cite us using
 ### Acknowledgement
 This work was performed under the following financial assistance award: 60NANB18D279 from U.S. Department of Commerce, National Institute of Standards and Technology, funding from SAP SE, and also NSF grant 1845216.
 
+### Questions/Issues
+Please create an issue on the Github Repo directly or contact [anisaha1@umbc.edu][paper] for any questions about the code.
+
 [paper]: https://arxiv.org/abs/1906.10842
+[email]: anisaha1@umbc.edu
