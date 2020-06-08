@@ -186,4 +186,4 @@ This work was performed under the following financial assistance award: 60NANB18
 Please create an issue on the Github Repo directly or contact [anisaha1@umbc.edu][email] for any questions about the code.
 
 [paper]: https://arxiv.org/abs/1906.10842
-[email]: anisaha1@umbc.edu
+[email]: mailto:anisaha1@umbc.edu
