@@ -18,11 +18,6 @@ and Tiny-ImageNet.
 ### Requirements
 The code was tested using pytorch 1.4.0, python 3.7.
 
-### Coming Soon
-- [ ] MNIST
-- [ ] GTSRB
-- [ ] Generalizability on GTSRB
-
 ### CIFAR-10
 
 #### Generate poisoned data
