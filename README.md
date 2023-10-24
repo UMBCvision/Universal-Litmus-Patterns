@@ -166,11 +166,12 @@ python plot_ROC_curves.py
 ### Citation
 If you find our paper, code or models useful, please cite us using
 ```bib
-@article{kolouri2019universal,
+@inproceedings{kolouri2020universal,
   title={Universal Litmus Patterns: Revealing Backdoor Attacks in CNNs},
   author={Kolouri, Soheil and Saha, Aniruddha and Pirsiavash, Hamed and Hoffmann, Heiko},
-  journal={arXiv preprint arXiv:1906.10842},
-  year={2019}
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={301--310},
+  year={2020}
 }
 ```
 
